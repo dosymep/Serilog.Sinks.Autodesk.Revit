@@ -32,7 +32,7 @@ public static class AutodeskRevitSinkLoggerConfigurationExtensions {
     /// <param name="formatProvider">Supplies culture-specific formatting information, or <see langword="null" />.</param>
     /// <returns></returns>
     /// <exception cref="System.ArgumentNullException">When <paramref name="sinkConfiguration"/> or <paramref name="uiApplication"/> is <see langword="null" />.</exception>
-    public static LoggerConfiguration AutodeskRevitJournal(this LoggerSinkConfiguration sinkConfiguration,
+    public static LoggerConfiguration RevitJournal(this LoggerSinkConfiguration sinkConfiguration,
         UIApplication uiApplication,
         bool useTimeStamps = false,
         string outputTemplate = DefaultOutputTemplate,
