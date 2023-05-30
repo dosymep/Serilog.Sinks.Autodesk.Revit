@@ -7,6 +7,25 @@
         <LangVersion>11</LangVersion>
         <Configurations>Release;Debug</Configurations>
         <Platforms>x64</Platforms>
+        <PackageIcon>autodesk-revit.png</PackageIcon>
+        <Authors>dosymep</Authors>
+        <Copyright>Copyright (c) 2023 Biseuv Olzhas (dosymep)</Copyright>
+        <PackageProjectUrl>https://github.com/dosymep/Serilog.Sinks.Autodesk.Revit</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/dosymep/Serilog.Sinks.Autodesk.Revit/blob/master/LICENSE.md</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/dosymep/Serilog.Sinks.Autodesk.Revit.git</RepositoryUrl>
+        <RepositoryType>Git</RepositoryType>
+        <PackageTags>git, serilog, sink, autodesk, revit, dosymep</PackageTags>
+        <Title>Serilog.Sinks.Autodesk.Revit</Title>
+        <Description>The Autodesk Revit Journal sink for Serilog</Description>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+      <DocumentationFile>bin\x64\Debug\Serilog.Sinks.Autodesk.Revit.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+      <DebugSymbols>true</DebugSymbols>
     </PropertyGroup>
 
     <ItemGroup>
@@ -16,5 +35,13 @@
     <ItemGroup>
       <PackageReference Include="Autodesk.Revit.SDK" Version="2017.0.0" />
       <PackageReference Include="Serilog" Version="2.10.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="..\..\assets\autodesk-revit.png">
+        <Pack>True</Pack>
+        <PackagePath></PackagePath>
+        <Link>autodesk-revit.png</Link>
+      </None>
     </ItemGroup>
 </Project>
