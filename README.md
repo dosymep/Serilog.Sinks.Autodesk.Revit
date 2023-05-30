@@ -23,3 +23,13 @@ public Result Execute(ExternalCommandData commandData,
         .CreateLogger();
 }
 ```
+
+```csharp
+// IExternalApplication.Execute
+public Result OnStartup(UIControlledApplication application) {
+    UIApplication uiApplication = commandData.Application;
+    var log = new LoggerConfiguration()
+        .WriteTo.AutodeskRevitJournal(application)
+        .CreateLogger();
+}
+```
