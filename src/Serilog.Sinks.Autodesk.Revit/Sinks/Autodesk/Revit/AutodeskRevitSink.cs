@@ -13,16 +13,16 @@ namespace Serilog.Sinks.Autodesk.Revit;
 /// Autodesk Revit Sink
 /// </summary>
 internal sealed class AutodeskRevitSink : ILogEventSink {
-    private readonly UIApplication _uiApplication;
+    private readonly IRevitOutput _revitOutput;
     private readonly ITextFormatter _textFormatter;
 
     /// <summary>
     /// Creates Autodesk Revit Sink.
     /// </summary>
-    /// <param name="uiApplication">Revit UIApplication.</param>
+    /// <param name="revitOutput">Revit UIApplication.</param>
     /// <param name="textFormatter">Message format provider.</param>
-    public AutodeskRevitSink(UIApplication uiApplication, ITextFormatter textFormatter) {
-        _uiApplication = uiApplication ?? throw new ArgumentNullException(nameof(uiApplication));
+    public AutodeskRevitSink(IRevitOutput revitOutput, ITextFormatter textFormatter) {
+        _revitOutput = revitOutput ?? throw new ArgumentNullException(nameof(revitOutput));
         _textFormatter = textFormatter ?? throw new ArgumentNullException(nameof(textFormatter));
     }
 
@@ -36,6 +36,6 @@ internal sealed class AutodeskRevitSink : ILogEventSink {
         StringBuilder outputString = new();
         using StringWriter outputStream = new(outputString);
         _textFormatter.Format(logEvent, outputStream);
-        _uiApplication.Application.WriteJournalComment(outputString.ToString(), UseTimeStamps);
+        _revitOutput.WriteJournalComment(outputString.ToString(), UseTimeStamps);
     }
 }
