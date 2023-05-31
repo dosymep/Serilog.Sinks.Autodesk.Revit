@@ -11,11 +11,23 @@ public class AutodeskRevitSinkTests {
     [Test]
     public void WriteLogTest() {
         var revitOutput = Helpers.CreateRevitOutput();
-        var journalSink = Helpers.CreateJournalSink(revitOutput);
-        var logEvent = Helpers.CreateLogEvent("Hello, world!");
+        var useTimeStamps = false;
+        var outputTemplate = Helpers.GetDefaultOutputTemplate();
+        var restrictedToMinimumLevel = LevelAlias.Minimum;
+        LoggingLevelSwitch? levelSwitch = null;
+        IFormatProvider? formatProvider = null;
 
-        journalSink.Emit(logEvent);
-
+        var log = new LoggerConfiguration()
+            .WriteTo.RevitJournal(
+                revitOutput,
+                useTimeStamps,
+                outputTemplate,
+                restrictedToMinimumLevel,
+                levelSwitch,
+                formatProvider)
+            .CreateLogger();
+        
+        log.Information("Hello, world!");
         StringAssert.Contains("Hello, world!", revitOutput.Comments[0]);
     }
 
