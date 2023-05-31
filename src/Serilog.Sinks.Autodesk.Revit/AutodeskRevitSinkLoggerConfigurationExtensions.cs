@@ -22,7 +22,7 @@ public static class AutodeskRevitSinkLoggerConfigurationExtensions {
 
     /// <summary>
     /// Write log events to Autodesk Revit
-    /// <a href="https://www.revitapidocs.com/2022/97ec1eca-ab92-1cee-fdda-7bf3ce91c504.htm">Journal</a>.
+    /// <a href="https://www.revitapidocs.com/2017.1/97ec1eca-ab92-1cee-fdda-7bf3ce91c504.htm">Journal</a>.
     /// </summary>
     /// <param name="sinkConfiguration">Logger sink configuration.</param>
     /// <param name="uiApplication">Revit UIApplication.</param>
@@ -60,7 +60,7 @@ public static class AutodeskRevitSinkLoggerConfigurationExtensions {
 
     /// <summary>
     /// Write log events to Autodesk Revit
-    /// <a href="https://www.revitapidocs.com/2022/97ec1eca-ab92-1cee-fdda-7bf3ce91c504.htm">Journal</a>.
+    /// <a href="https://www.revitapidocs.com/2017.1/97ec1eca-ab92-1cee-fdda-7bf3ce91c504.htm">Journal</a>.
     /// </summary>
     /// <param name="sinkConfiguration">Logger sink configuration.</param>
     /// <param name="uiControlledApplication">Revit UIControlledApplication.</param>
