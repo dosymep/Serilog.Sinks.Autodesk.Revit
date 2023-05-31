@@ -1,6 +1,5 @@
 ﻿using Autodesk.Revit.ApplicationServices;
 
-// ReSharper disable once CheckNamespace
 namespace Serilog.Sinks.Autodesk.Revit;
 
 internal class RevitApplicationOutput : IRevitOutput {

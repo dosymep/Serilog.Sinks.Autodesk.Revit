@@ -7,7 +7,6 @@ using Serilog.Formatting;
 using Serilog.Formatting.Display;
 using Serilog.Sinks.Autodesk.Revit;
 
-// ReSharper disable once CheckNamespace
 namespace Serilog;
 
 /// <summary>
