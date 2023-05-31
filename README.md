@@ -19,7 +19,7 @@ public Result Execute(ExternalCommandData commandData,
                       ElementSet elements) {
     UIApplication uiApplication = commandData.Application;
     var log = new LoggerConfiguration()
-        .WriteTo.AutodeskRevitJournal(uiApplication)
+        .WriteTo.RevitJournal(uiApplication)
         .CreateLogger();
 }
 ```
@@ -29,7 +29,7 @@ public Result Execute(ExternalCommandData commandData,
 public Result OnStartup(UIControlledApplication application) {
     UIApplication uiApplication = commandData.Application;
     var log = new LoggerConfiguration()
-        .WriteTo.AutodeskRevitJournal(application)
+        .WriteTo.RevitJournal(application)
         .CreateLogger();
 }
 ```
