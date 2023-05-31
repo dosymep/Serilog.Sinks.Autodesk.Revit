@@ -3,6 +3,7 @@
 using Serilog.Configuration;
 using Serilog.Core;
 using Serilog.Events;
+using Serilog.Formatting;
 using Serilog.Formatting.Display;
 using Serilog.Sinks.Autodesk.Revit;
 
@@ -102,8 +103,12 @@ public static class AutodeskRevitSinkLoggerConfigurationExtensions {
         LogEventLevel restrictedToMinimumLevel,
         LoggingLevelSwitch? levelSwitch,
         IFormatProvider? formatProvider) {
-        var textFormatter = new MessageTemplateTextFormatter(outputTemplate, formatProvider);
+        var textFormatter = CreateTextFormatter(outputTemplate, formatProvider);
         var autodeskRevitSink = new AutodeskRevitSink(revitOutput, textFormatter) {UseTimeStamps = useTimeStamps};
         return sinkConfiguration.Sink(autodeskRevitSink, restrictedToMinimumLevel, levelSwitch);
+    }
+
+    internal static ITextFormatter CreateTextFormatter(string outputTemplate, IFormatProvider? formatProvider) {
+        return new MessageTemplateTextFormatter(outputTemplate, formatProvider);
     }
 }
