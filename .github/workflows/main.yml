@@ -40,12 +40,12 @@ jobs:
         run: dotnet test -c ${{ env.configuration }} --logger trx --results-directory "TestResults"
 
       - name: Upload test results
-        uses: actions/upload-artifact@v4
+        uses: bibipkins/dotnet-test-reporter@v1.4.0
         with:
-          name: TestResults
-          path: TestResults
-        # Use always() to always run this step to publish test results when there are test failures
-        if: ${{ always() }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          comment-title: 'Unit Test Results'
+          results-path: ./TestResults/*.trx
+          coverage-threshold: 80
 
       - name: Pack
         run: dotnet pack -c ${{ env.configuration }} -o ${{ env.output }}
