@@ -3,6 +3,8 @@ name: main
 permissions:
   packages: write
   contents: write
+  actions: read
+  checks: write
 
 on:
   # on pull_request to master
@@ -39,14 +41,15 @@ jobs:
       - name: Test
         run: dotnet test -c ${{ env.configuration }} --logger trx --results-directory "TestResults"
 
-      - name: Upload test results
-        uses: bibipkins/dotnet-test-reporter@v1.4.0
+      # Upload tests results: https://github.com/dorny/test-reporter
+      - name: Upload tests results
+        uses: dorny/test-reporter@v1
+        if: success() || failure()
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          comment-title: 'Unit Test Results'
-          results-path: ./TestResults/*.trx
-          coverage-threshold: 80
-
+          name: dotnet tests
+          path: ./TestResults/*.trx
+          reporter: dotnet-trx
+        
       - name: Pack
         run: dotnet pack -c ${{ env.configuration }} -o ${{ env.output }}
       
