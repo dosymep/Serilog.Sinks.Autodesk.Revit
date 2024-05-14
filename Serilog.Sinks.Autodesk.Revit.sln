@@ -9,6 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		CREDITS.md = CREDITS.md
 		LICENSE.md = LICENSE.md
 		README.md = README.md
+		CHANGELOG.md = CHANGELOG.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serilog.Sinks.Autodesk.Revit.Tests", "src/Serilog.Sinks.Autodesk.Revit.Tests\Serilog.Sinks.Autodesk.Revit.Tests.csproj", "{508A5950-2DBA-475D-A083-8E5161D5E5B9}"
