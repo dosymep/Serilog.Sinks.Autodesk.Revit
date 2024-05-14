@@ -1,4 +1,5 @@
 using NUnit.Framework.Internal;
+using NUnit.Framework.Legacy;
 
 using Serilog.Configuration;
 using Serilog.Core;
@@ -28,7 +29,7 @@ public class AutodeskRevitSinkTests {
             .CreateLogger();
         
         log.Information("Hello, world!");
-        StringAssert.Contains("Hello, world!", revitOutput.Comments[0]);
+        Assert.That(revitOutput.Comments[0], Does.Contain("Hello, world!"));
     }
 
     [Test]
