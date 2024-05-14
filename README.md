@@ -22,7 +22,7 @@ To configure the sink in C# code, call `WriteTo.RevitJournal()` during logger co
 public Result Execute(ExternalCommandData commandData, 
                       out string message, 
                       ElementSet elements) {
-    UIApplication uiApplication = commandData.Application;
+    UIApplic[.gitignore](.gitignore)ation uiApplication = commandData.Application;
     var log = new LoggerConfiguration()
         .WriteTo.RevitJournal(uiApplication)
         .CreateLogger();
